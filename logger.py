@@ -5,9 +5,13 @@ import xml.etree.ElementTree as xml
 import sqlalchemy as db
 from sqlalchemy import *
 
+if not os.getenv("DB_ENGINE"):
+    from dotenv import load_dotenv
+    load_dotenv()
+
 # Define a means to get the required data
 url = "https://www.irishrail.ie/LiveMap" \
-      "/GetCurrentTrainsXml"
+      "/GetCurrentTrainsXml?trainType=A"
 
 
 # Function that returns new data from the endpoint
