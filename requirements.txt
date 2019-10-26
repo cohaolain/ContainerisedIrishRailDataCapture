@@ -1,0 +1,4 @@
+requests
+sqlalchemy
+mysqlclient
+psycopg2
