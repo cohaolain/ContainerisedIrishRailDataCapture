@@ -1,0 +1,13 @@
+# DB_ENGINE=postgresql
+# DB_HOST=localhost
+# DB_PORT=5432
+# DB_NAME=irishrail_logger
+# DB_USERNAME=irishrail_logger
+# DB_PASSWORD=supersecretpassword
+
+DB_ENGINE=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_NAME=irishrail_logger
+DB_USERNAME=irishrail_logger
+DB_PASSWORD=supersecretpassword
