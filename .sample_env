@@ -6,7 +6,9 @@
 # DB_PASSWORD=supersecretpassword
 
 DB_ENGINE=mysql
-DB_HOST=localhost
+# Use 127.0.0.1 here instead of localhost
+# Otherwise MySQL will try to use a Unix socket
+DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_NAME=irishrail_logger
 DB_USERNAME=irishrail_logger
