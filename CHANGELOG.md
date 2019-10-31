@@ -13,6 +13,9 @@ and this project adheres to
 
 -   Issue in Makefile with incorrect flag has been resolved.
 
+-   Add SSL libraries to address an (issue)[https://tiny.cc/4e0hfz] with
+    https connections.
+
 ## [1.0.0-beta] - 2019-10-31
 
 ### Added
