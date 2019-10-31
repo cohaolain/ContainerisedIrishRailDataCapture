@@ -5,13 +5,12 @@ import xml.etree.ElementTree as xml
 import sqlalchemy as db
 from sqlalchemy import *
 
-if not os.getenv("DB_ENGINE"):
+if not os.getenv("API_ENDPOINT"):
     from dotenv import load_dotenv
     load_dotenv()
 
 # Define a means to get the required data
-url = "https://www.irishrail.ie/LiveMap" \
-      "/GetCurrentTrainsXml?trainType=A"
+url = os.getenv("API_ENDPOINT")
 
 
 # Function that returns new data from the endpoint
