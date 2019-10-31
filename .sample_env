@@ -1,3 +1,6 @@
+API_ENDPOINT=https://www.irishrail.ie/LiveMap/GetCurrentTrainsXml\?trainType=A
+
+# PostgreSQL Configuration
 # DB_ENGINE=postgresql
 # DB_HOST=localhost
 # DB_PORT=5432
@@ -5,6 +8,7 @@
 # DB_USERNAME=irishrail_logger
 # DB_PASSWORD=supersecretpassword
 
+# MySQL Configuration
 DB_ENGINE=mysql
 # Use 127.0.0.1 here instead of localhost
 # Otherwise MySQL will try to use a Unix socket
