@@ -1,20 +1,20 @@
 USER = $(shell docker info | sed '/Username:/!d;s/.* //')
 TAG = $(shell git describe --abbrev=0)
-IMAGE_NAME = "irishrail-logger"
+IMAGE_NAME = irishrail-logger
 
 # Building
 build-image:
-	docker build -t "$(USER)/$(IMAGE_NAME)" --rm .
+	docker build -t $(USER)/$(IMAGE_NAME) --rm .
 
 build-image-tag:
-	docker build -t "$(USER)/$(IMAGE_NAME):$(TAG)" --rm .
+	docker build -t $(USER)/$(IMAGE_NAME):$(TAG) --rm .
 
 # Pushing
 push-image:
-	docker push "$(USER)/$(IMAGE_NAME)" --rm
+	docker push $(USER)/$(IMAGE_NAME)
 
 push-image-tag:
-    docker push "$(USER)/$(IMAGE_NAME):$(TAG)"
+    docker push $(USER)/$(IMAGE_NAME):$(TAG)
 
 # Running
 run-image:
