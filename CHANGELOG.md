@@ -7,13 +7,13 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+## [1.0.1-beta] - 2019-10-31
 
 ### Fixed
 
 -   Issue in Makefile with incorrect flag has been resolved.
 
--   Add SSL libraries to address an (issue)[https://tiny.cc/4e0hfz] with
+-   Add SSL libraries to address an [issue](https://tiny.cc/4e0hfz) with
     https connections.
 
 ## [1.0.0-beta] - 2019-10-31
