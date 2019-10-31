@@ -1,5 +1,16 @@
+# To make API requests
 requests
-sqlalchemy
-mysqlclient
-psycopg2
+
+# To fix SSL issues in newer Python versions (https://tiny.cc/4e0hfz)
+pyopenssl
+
+# To load .env file if running locally
 python-dotenv
+
+
+# To communicate with DBs
+sqlalchemy
+# MySQL connector
+mysqlclient
+# PostgreSQL connector
+psycopg2
