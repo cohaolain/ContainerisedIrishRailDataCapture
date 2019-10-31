@@ -2,8 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on
+[Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to
+[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.0.0-beta] - 2019-10-31
+
+### Added
+
+-   The ability to specify the endpoint URL to be used through an env
+    variable.
+
+-   A Makefile with basic build, test and push commands for Docker.
+
+### Fixed
+
+-   `.sample_env` MySQL configuration now points to `127.0.0.1` instead of
+    `localhost`, as using `localhost` fails due to MySQL trying to create a
+    Unix socket.
+-   Added a missing dependency.
 
 ## [0.1.1-beta] - 2019-10-26
 
@@ -20,10 +38,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -   First beta version of the project.
 
--   Added basic documentation, dependencies and working version of the server that keeps
-    checking for new data.
+-   Added basic documentation, dependencies and working version of the server
+    that keeps checking for new data.
 
--   Compatibility with MySQL and PostgreSQL as destinations to store data, along with
-    relevant configuration files.
+-   Compatibility with MySQL and PostgreSQL as destinations to store data,
+    along with relevant configuration files.
 
 -   Dockerfile (beta) to containerise for easier deployment.

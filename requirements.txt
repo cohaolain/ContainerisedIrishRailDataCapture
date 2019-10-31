@@ -2,3 +2,4 @@ requests
 sqlalchemy
 mysqlclient
 psycopg2
+python-dotenv
