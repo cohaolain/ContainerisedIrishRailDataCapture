@@ -7,6 +7,12 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Fixed
+
+-   Issue in Makefile with incorrect flag has been resolved.
+
 ## [1.0.0-beta] - 2019-10-31
 
 ### Added
