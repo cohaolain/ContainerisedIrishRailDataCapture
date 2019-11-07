@@ -7,6 +7,14 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+-   Added error handling.
+    -   Failed DB writes will be cached until they are successfuly written.
+    -   Failed API calls are retried after a time interval
+
 ## [1.0.1-beta] - 2019-10-31
 
 ### Fixed

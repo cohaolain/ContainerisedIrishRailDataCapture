@@ -15,7 +15,10 @@ url = os.getenv("API_ENDPOINT")
 
 # Function that returns new data from the endpoint
 def getData():
-    return requests.get(url).content
+    try:
+        return requests.get(url).content
+    except Exception:
+        pass
 
 
 # Create the DB engine and connect to the DB
@@ -43,26 +46,36 @@ datapoints = Table('datapoints', db_metadata,
 db_metadata.create_all(engine)
 
 previous_data = []
+changeset = []
 while 1:
     # Fetch the data
     raw_data = getData()
 
     # Parse the XML into a dict
-    trains = list(map(lambda train: dict(map(lambda datapoint: (
-        datapoint.tag.split('}')[-1], datapoint.text.replace("\\n", "\n")),
-        train)),
-        xml.fromstring(raw_data)))
+    try:
+        trains = list(map(lambda train: dict(map(lambda datapoint: (
+            datapoint.tag.split('}')[-1], datapoint.text.replace("\\n", "\n")),
+            train)),
+            xml.fromstring(raw_data)))
+    except Exception:
+        sleep(5)
+        continue
     new_data = trains
 
     # The changeset contains all data not in the previous dataframe
-    changeset = [dict(train, LoggedAt=strftime("%Y-%m-%d %H:%M:%S"))
-                 for train in filter(
+    changeset += [dict(train, LoggedAt=strftime("%Y-%m-%d %H:%M:%S"))
+                  for train in filter(
         (lambda x: x not in previous_data), new_data)]
 
     # Store all this data in the DB
     if changeset:
-        connection.execute(
-            datapoints.insert(changeset))
+        try:
+            connection.execute(
+                datapoints.insert(changeset))
+            changeset = []
+        except Exception:
+            print("DB Insert Failure")
+            pass
 
     # Store the new dataframe to compare the nexy one
     previous_data = trains
