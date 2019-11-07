@@ -14,7 +14,7 @@ push-image:
 	docker push $(USER)/$(IMAGE_NAME)
 
 push-image-tag:
-    docker push $(USER)/$(IMAGE_NAME):$(TAG)
+	docker push $(USER)/$(IMAGE_NAME):$(TAG)
 
 # Running
 run-image:
