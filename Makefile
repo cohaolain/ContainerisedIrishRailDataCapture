@@ -16,6 +16,12 @@ push-image:
 push-image-tag:
 	docker push $(USER)/$(IMAGE_NAME):$(TAG)
 
+repo-push:
+	git push --all
+	git push --tags
+	git push gitlab --all
+	git push gitlab --tags
+
 # Running
 run-image:
 	docker run -itd --net=host --env-file=.env --name=ir-logger-instance $(USER)/$(IMAGE_NAME)
