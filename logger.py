@@ -17,7 +17,8 @@ url = os.getenv("API_ENDPOINT")
 def getData():
     try:
         return requests.get(url).content
-    except Exception:
+    except Exception as e:
+        print("API Fetch Error", e)
         pass
 
 
@@ -57,7 +58,8 @@ while 1:
             datapoint.tag.split('}')[-1], datapoint.text.replace("\\n", "\n")),
             train)),
             xml.fromstring(raw_data)))
-    except Exception:
+    except Exception as e:
+        print("XML Parse Error", e)
         sleep(5)
         continue
     new_data = trains
@@ -73,8 +75,8 @@ while 1:
             connection.execute(
                 datapoints.insert(changeset))
             changeset = []
-        except Exception:
-            print("DB Insert Failure")
+        except Exception as e:
+            print("DB Insert Failure", e)
             pass
 
     # Store the new dataframe to compare the nexy one
