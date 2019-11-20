@@ -12,11 +12,16 @@ if not os.getenv("API_ENDPOINT"):
 # Define a means to get the required data
 url = os.getenv("API_ENDPOINT")
 
+download_interval = int(os.getenv("DOWNLOAD_INTERVAL"))
+
 
 # Function that returns new data from the endpoint
 def getData():
     try:
-        return requests.get(url).content
+        print("getting data")
+        data = requests.get(url).content
+        print("got data")
+        return data
     except Exception as e:
         print("API Fetch Error", e)
         pass
@@ -72,14 +77,16 @@ while 1:
     # Store all this data in the DB
     if changeset:
         try:
+            print("adding", len(changeset))
             connection.execute(
                 datapoints.insert(changeset))
             changeset = []
         except Exception as e:
             print("DB Insert Failure", e)
+            print("Defering {} entries.".format(len(changeset)))
             pass
 
-    # Store the new dataframe to compare the nexy one
+    # Store the new dataframe to compare the next one
     previous_data = trains
 
     # Wait a few seconds until we check if anything has changed
